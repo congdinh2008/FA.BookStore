@@ -1,19 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using FA.BookStore.Core.Models;
+﻿using FA.BookStore.Core.Models;
 
 namespace FA.BookStore.Core.Repositories
 {
-    public interface IPublisherRepository
+    public interface IPublisherRepository : IGenericRepository<Publisher>
     {
-        Publisher Find(Guid publisherId);
-
-        int Add(Publisher publisher);
-
-        bool Update(Publisher publisher);
-
-        bool Delete(Publisher publisher);
-
-        IEnumerable<Publisher> GetAll();
     }
 }
