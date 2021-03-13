@@ -4,18 +4,8 @@ using System.Collections.Generic;
 
 namespace FA.BookStore.Core.Repositories
 {
-    public interface IBookRepository
+    public interface IBookRepository: IGenericRepository<Book>
     {
-        Book Find(Guid bookId);
-
-        int Add(Book book);
-
-        bool Update(Book book);
-
-        bool Delete(Book book);
-
-        IEnumerable<Book> GetAll();
-
         IEnumerable<Book> FindBookByTitle(string title);
 
         IEnumerable<Book> FindBookBySummary(string summary);
