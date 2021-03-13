@@ -1,15 +1,13 @@
-﻿using FA.BookStore.Core.Data;
-using FA.BookStore.Core.Models;
+﻿using FA.BookStore.Core.Repositories;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using FA.BookStore.Core.Repositories;
 
 namespace FA.BookStore.DemoConsole
 {
     class Program
     {
         private static readonly ICategoryRepository _categoryRepository = new CategoryRepository();
+        private static readonly IPublisherRepository _publisherRepository = new PublisherRepository();
+        private static readonly IAuthorRepository _authorRepository = new AuthorRepository();
         static void Main(string[] args)
         {
             Console.WriteLine("=========== List Books by context ===========");
@@ -29,6 +27,24 @@ namespace FA.BookStore.DemoConsole
             foreach (var category in categories)
             {
                 Console.WriteLine(category.Name);
+            }
+
+            Console.WriteLine("=========== List Author by Author Repository ===========");
+
+            var authors = _authorRepository.GetAll();
+
+            foreach (var author in authors)
+            {
+                Console.WriteLine(author.Name);
+            }
+
+            Console.WriteLine("=========== List Publisher by Publisher Repository ===========");
+
+            var publishers = _publisherRepository.GetAll();
+
+            foreach (var publisher in publishers)
+            {
+                Console.WriteLine(publisher.Name);
             }
 
             Console.ReadKey();
