@@ -57,10 +57,15 @@
     <Compile Include="Migrations\202103131635439_UpdateBookModel.Designer.cs">
       <DependentUpon>202103131635439_UpdateBookModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202103131716191_CreateCommentModel.cs" />
+    <Compile Include="Migrations\202103131716191_CreateCommentModel.Designer.cs">
+      <DependentUpon>202103131716191_CreateCommentModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Author.cs" />
     <Compile Include="Models\Book.cs" />
     <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\Publisher.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\AuthorRepository.cs" />
@@ -82,6 +87,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202103131635439_UpdateBookModel.resx">
       <DependentUpon>202103131635439_UpdateBookModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103131716191_CreateCommentModel.resx">
+      <DependentUpon>202103131716191_CreateCommentModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />
