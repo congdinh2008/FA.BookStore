@@ -4,18 +4,8 @@ using System.Collections.Generic;
 
 namespace FA.BookStore.Core.Repositories
 {
-    public interface ICommentRepository
+    public interface ICommentRepository: IGenericRepository<Comment>
     {
-        Comment Find(Guid commendId);
-
-        int Add(Comment comment);
-
-        bool Update(Comment comment);
-
-        bool Delete(Comment comment);
-
-        IEnumerable<Comment> GetAll();
-
         IEnumerable<Comment> GetCommentsByBook(Guid bookId);
     }
 }
