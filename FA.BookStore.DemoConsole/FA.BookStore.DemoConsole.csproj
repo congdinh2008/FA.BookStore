@@ -4,16 +4,17 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{1DBB385C-1C93-4ACC-A88E-E04D66711331}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>FA.BookStore.Core</RootNamespace>
-    <AssemblyName>FA.BookStore.Core</AssemblyName>
+    <ProjectGuid>{78C47BD2-7245-4807-89FC-4E3F46211202}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>FA.BookStore.DemoConsole</RootNamespace>
+    <AssemblyName>FA.BookStore.DemoConsole</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,6 +24,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -48,20 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Data\BookStoreContext.cs" />
-    <Compile Include="Migrations\202103131621385_CreateBasicModels.cs" />
-    <Compile Include="Migrations\202103131621385_CreateBasicModels.Designer.cs">
-      <DependentUpon>202103131621385_CreateBasicModels.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202103131635439_UpdateBookModel.cs" />
-    <Compile Include="Migrations\202103131635439_UpdateBookModel.Designer.cs">
-      <DependentUpon>202103131635439_UpdateBookModel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\Author.cs" />
-    <Compile Include="Models\Book.cs" />
-    <Compile Include="Models\Category.cs" />
-    <Compile Include="Models\Publisher.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -69,12 +58,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202103131621385_CreateBasicModels.resx">
-      <DependentUpon>202103131621385_CreateBasicModels.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202103131635439_UpdateBookModel.resx">
-      <DependentUpon>202103131635439_UpdateBookModel.cs</DependentUpon>
-    </EmbeddedResource>
+    <ProjectReference Include="..\FA.BookStore.Core\FA.BookStore.Core.csproj">
+      <Project>{1dbb385c-1c93-4acc-a88e-e04d66711331}</Project>
+      <Name>FA.BookStore.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
