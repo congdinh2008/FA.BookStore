@@ -1,5 +1,6 @@
 ﻿using FA.BookStore.Core.Repositories;
 using System;
+using System.Text;
 
 namespace FA.BookStore.DemoConsole
 {
@@ -8,8 +9,12 @@ namespace FA.BookStore.DemoConsole
         private static readonly ICategoryRepository _categoryRepository = new CategoryRepository();
         private static readonly IPublisherRepository _publisherRepository = new PublisherRepository();
         private static readonly IAuthorRepository _authorRepository = new AuthorRepository();
+
+        private static readonly IBookRepository _bookRepository = new BookRepository();
         static void Main(string[] args)
         {
+            Console.OutputEncoding = Encoding.UTF8;
+
             Console.WriteLine("=========== List Books by context ===========");
 
             //var books = new List<Book>();
@@ -45,6 +50,15 @@ namespace FA.BookStore.DemoConsole
             foreach (var publisher in publishers)
             {
                 Console.WriteLine(publisher.Name);
+            }
+
+            Console.WriteLine("=========== Get 10 latest book by Book Repository ===========");
+
+            var books = _bookRepository.GetLatestBook(10);
+
+            foreach (var book in books)
+            {
+                Console.WriteLine(book.Title);
             }
 
             Console.ReadKey();
