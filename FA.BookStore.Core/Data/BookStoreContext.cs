@@ -1,4 +1,5 @@
-﻿using FA.BookStore.Core.Models;
+﻿using FA.BookStore.Core.Migrations;
+using FA.BookStore.Core.Models;
 using System.Data.Entity;
 
 namespace FA.BookStore.Core.Data
@@ -7,6 +8,7 @@ namespace FA.BookStore.Core.Data
     {
         public BookStoreContext() : base("name=BookStoreConn")
         {
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<BookStoreContext, Configuration>());
         }
 
         public DbSet<Category> Categories { get; set; }

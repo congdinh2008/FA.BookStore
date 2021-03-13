@@ -14,7 +14,7 @@ namespace FA.BookStore.Core.Models
         [StringLength(255, ErrorMessage = "The {0} not exceed {1} characters")]
         public string Title { get; set; }
 
-        [StringLength(1024, ErrorMessage = "The {0} not exceed {1} characters")]
+        [StringLength(2000, ErrorMessage = "The {0} not exceed {1} characters")]
         public string Summary { get; set; }
 
         [Required(ErrorMessage = "Please select book image.")]
