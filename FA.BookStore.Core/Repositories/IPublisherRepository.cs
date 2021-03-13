@@ -1,11 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using FA.BookStore.Core.Models;
 
 namespace FA.BookStore.Core.Repositories
 {
     public interface IPublisherRepository
     {
-        Publisher Find(int publisherId);
+        Publisher Find(Guid publisherId);
 
         int Add(Publisher publisher);
 

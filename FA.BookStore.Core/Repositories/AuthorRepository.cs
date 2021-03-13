@@ -1,4 +1,5 @@
-﻿using FA.BookStore.Core.Data;
+﻿using System;
+using FA.BookStore.Core.Data;
 using FA.BookStore.Core.Models;
 using System.Collections.Generic;
 using System.Data.Entity.Migrations;
@@ -13,7 +14,7 @@ namespace FA.BookStore.Core.Repositories
         {
             _context = new BookStoreContext();
         }
-        public Author Find(int authorId)
+        public Author Find(Guid authorId)
         {
             return _context.Authors.Find(authorId);
         }

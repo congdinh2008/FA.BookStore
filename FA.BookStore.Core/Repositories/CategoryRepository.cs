@@ -1,4 +1,5 @@
-﻿using FA.BookStore.Core.Data;
+﻿using System;
+using FA.BookStore.Core.Data;
 using FA.BookStore.Core.Models;
 using System.Collections.Generic;
 using System.Data.Entity.Migrations;
@@ -13,7 +14,7 @@ namespace FA.BookStore.Core.Repositories
         {
             _context = new BookStoreContext();
         }
-        public Category Find(int categoryId)
+        public Category Find(Guid categoryId)
         {
             return _context.Categories.Find(categoryId);
         }

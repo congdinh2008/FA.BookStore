@@ -6,7 +6,7 @@ namespace FA.BookStore.Core.Repositories
 {
     public interface IBookRepository
     {
-        Book Find(int bookId);
+        Book Find(Guid bookId);
 
         int Add(Book book);
 

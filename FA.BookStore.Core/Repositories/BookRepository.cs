@@ -16,7 +16,7 @@ namespace FA.BookStore.Core.Repositories
             _context = new BookStoreContext();
         }
 
-        public Book Find(int bookId)
+        public Book Find(Guid bookId)
         {
             return _context.Books.Find(bookId);
         }

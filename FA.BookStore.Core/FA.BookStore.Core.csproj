@@ -71,9 +71,11 @@
     <Compile Include="Repositories\AuthorRepository.cs" />
     <Compile Include="Repositories\BookRepository.cs" />
     <Compile Include="Repositories\CategoryRepository.cs" />
+    <Compile Include="Repositories\CommentRepository.cs" />
     <Compile Include="Repositories\IAuthorRepository.cs" />
     <Compile Include="Repositories\IBookRepository.cs" />
     <Compile Include="Repositories\ICategoryRepository.cs" />
+    <Compile Include="Repositories\ICommentRepository.cs" />
     <Compile Include="Repositories\IPublisherRepository.cs" />
     <Compile Include="Repositories\PublisherRepository.cs" />
   </ItemGroup>
