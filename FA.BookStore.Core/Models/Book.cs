@@ -39,19 +39,19 @@ namespace FA.BookStore.Core.Models
         [DefaultValue(false)]
         public bool IsActive { get; set; }
 
+        [ForeignKey("Category")]
         public int CategoryId { get; set; }
 
-        [ForeignKey("CategoryId")]
         public virtual Category Category { get; set; }
 
+        [ForeignKey("Author")]
         public int AuthorId { get; set; }
 
-        [ForeignKey("AuthorId")]
         public virtual Author Author { get; set; }
 
+        [ForeignKey("Publisher")]
         public int PublisherId { get; set; }
 
-        [ForeignKey("PublisherId")]
         public virtual Publisher Publisher { get; set; }
     }
 }
