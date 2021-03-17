@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace FA.BookStore.Core.Repositories
 {
-    public interface IBookRepository: IGenericRepository<Book>
+    public interface IBookRepository : IGenericRepository<Book>
     {
         IEnumerable<Book> FindBookByTitle(string title);
 
@@ -25,5 +25,12 @@ namespace FA.BookStore.Core.Repositories
         IEnumerable<Book> GetBooksByPublisher(string publisher);
 
         IEnumerable<Book> GetBooksByAuthor(string author);
+
+        IEnumerable<Book> GetBooksWithPaging(int index, int size);
+
+        IEnumerable<Book> GetBooksWithPagingAndFiltering(string searchString, int index, int size);
+
+        IEnumerable<Book> GetBooksWithPagingAndFilteringAndOrdering(string searchString,
+            string orderBy, int index, int size);
     }
 }

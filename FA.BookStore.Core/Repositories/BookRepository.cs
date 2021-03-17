@@ -57,5 +57,51 @@ namespace FA.BookStore.Core.Repositories
         {
             return Context.Books.Where(x => x.Author.Name == author).ToList();
         }
+
+        public IEnumerable<Book> GetBooksWithPaging(int index, int size)
+        {
+            return Context.Books.OrderBy(x => x.Title).Skip(size * (index - 1))
+                .Take(size).ToList();
+        }
+
+        public IEnumerable<Book> GetBooksWithPagingAndFiltering(string searchString, int index, int size)
+        {
+            return Context.Books.Where(x => x.Title.Contains(searchString) ||
+                                            x.Summary.Contains(searchString))
+                .OrderBy(x => x.Title).Skip(size * (index - 1)).Take(size).ToList();
+        }
+
+        public IEnumerable<Book> GetBooksWithPagingAndFilteringAndOrdering(
+            string searchString, string orderByString, int index, int size)
+        {
+            Func<IQueryable<Book>, IOrderedQueryable<Book>> orderBy = null;
+
+
+            if (orderByString == "Title_desc")
+            {
+                orderBy = b => b.OrderByDescending(s => s.Title);
+            }
+
+            if (orderByString == "Title_asc")
+            {
+                orderBy = b => b.OrderBy(s => s.Title);
+            }
+
+            if (orderByString == "CreatedDate_asc")
+            {
+                orderBy = b => b.OrderBy(s => s.Title);
+            }
+
+            if (orderByString == "CreatedDate_desc")
+            {
+                orderBy = b => b.OrderByDescending(s => s.Title);
+            }
+
+            var query = Context.Books.Where(x => x.Title.Contains(searchString) ||
+                                                 x.Summary.Contains(searchString));
+            query = orderBy(query);
+
+            return query.Skip(size * (index - 1)).Take(size).ToList();
+        }
     }
 }

@@ -61,6 +61,20 @@ namespace FA.BookStore.DemoConsole
                 Console.WriteLine(book.Title);
             }
 
+            Console.WriteLine("========= Book paging =========");
+            var bookList = _bookRepository.GetBooksWithPagingAndFiltering("One", 1, 10);
+            foreach (var book in bookList)
+            {
+                Console.WriteLine(book.Title);
+            }
+
+            Console.WriteLine("========= Book Ordering =========");
+            var bookList02 =
+                _bookRepository.GetBooksWithPagingAndFilteringAndOrdering("One", "Title", 1, 10);
+            foreach (var book in bookList02)
+            {
+                Console.WriteLine(book.Title);
+            }
             Console.ReadKey();
 
         }

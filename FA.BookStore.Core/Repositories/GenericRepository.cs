@@ -1,9 +1,9 @@
-﻿using System;
+﻿using FA.BookStore.Core.Data;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Migrations;
 using System.Linq;
-using FA.BookStore.Core.Data;
 
 namespace FA.BookStore.Core.Repositories
 {
@@ -17,7 +17,7 @@ namespace FA.BookStore.Core.Repositories
             Context = new BookStoreContext();
             _dbSet = Context.Set<TEntity>();
         }
-        
+
         public TEntity Find(Guid id)
         {
             return _dbSet.Find(id);

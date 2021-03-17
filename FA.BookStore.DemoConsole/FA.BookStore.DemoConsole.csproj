@@ -59,7 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FA.BookStore.Core\FA.BookStore.Core.csproj">
-      <Project>{1dbb385c-1c93-4acc-a88e-e04d66711331}</Project>
+      <Project>{1DBB385C-1C93-4ACC-A88E-E04D66711331}</Project>
       <Name>FA.BookStore.Core</Name>
     </ProjectReference>
   </ItemGroup>

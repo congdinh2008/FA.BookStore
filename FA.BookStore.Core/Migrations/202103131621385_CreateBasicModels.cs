@@ -1,8 +1,7 @@
 namespace FA.BookStore.Core.Migrations
 {
-    using System;
     using System.Data.Entity.Migrations;
-    
+
     public partial class CreateBasicModels : DbMigration
     {
         public override void Up()
@@ -10,30 +9,30 @@ namespace FA.BookStore.Core.Migrations
             CreateTable(
                 "common.Author",
                 c => new
-                    {
-                        Id = c.Guid(nullable: false),
-                        Name = c.String(nullable: false, maxLength: 50),
-                        Description = c.String(maxLength: 1024),
-                    })
+                {
+                    Id = c.Guid(nullable: false),
+                    Name = c.String(nullable: false, maxLength: 50),
+                    Description = c.String(maxLength: 1024),
+                })
                 .PrimaryKey(t => t.Id);
-            
+
             CreateTable(
                 "common.Book",
                 c => new
-                    {
-                        Id = c.Guid(nullable: false),
-                        Title = c.String(nullable: false, maxLength: 255),
-                        Summary = c.String(maxLength: 1024),
-                        ImageUrl = c.String(nullable: false),
-                        Price = c.Decimal(nullable: false, precision: 18, scale: 2),
-                        Quantity = c.Int(nullable: false),
-                        CreatedDate = c.DateTimeOffset(nullable: false, precision: 7),
-                        ModifiedDate = c.DateTimeOffset(nullable: false, precision: 7),
-                        IsActive = c.Boolean(nullable: false),
-                        CategoryId = c.Guid(nullable: false),
-                        AuthorId = c.Guid(nullable: false),
-                        PublisherId = c.Guid(nullable: false),
-                    })
+                {
+                    Id = c.Guid(nullable: false),
+                    Title = c.String(nullable: false, maxLength: 255),
+                    Summary = c.String(maxLength: 1024),
+                    ImageUrl = c.String(nullable: false),
+                    Price = c.Decimal(nullable: false, precision: 18, scale: 2),
+                    Quantity = c.Int(nullable: false),
+                    CreatedDate = c.DateTimeOffset(nullable: false, precision: 7),
+                    ModifiedDate = c.DateTimeOffset(nullable: false, precision: 7),
+                    IsActive = c.Boolean(nullable: false),
+                    CategoryId = c.Guid(nullable: false),
+                    AuthorId = c.Guid(nullable: false),
+                    PublisherId = c.Guid(nullable: false),
+                })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("common.Author", t => t.AuthorId, cascadeDelete: true)
                 .ForeignKey("common.Category", t => t.CategoryId, cascadeDelete: true)
@@ -41,29 +40,29 @@ namespace FA.BookStore.Core.Migrations
                 .Index(t => t.CategoryId)
                 .Index(t => t.AuthorId)
                 .Index(t => t.PublisherId);
-            
+
             CreateTable(
                 "common.Category",
                 c => new
-                    {
-                        Id = c.Guid(nullable: false),
-                        Name = c.String(nullable: false, maxLength: 50),
-                        Description = c.String(maxLength: 1024),
-                    })
+                {
+                    Id = c.Guid(nullable: false),
+                    Name = c.String(nullable: false, maxLength: 50),
+                    Description = c.String(maxLength: 1024),
+                })
                 .PrimaryKey(t => t.Id);
-            
+
             CreateTable(
                 "common.Publisher",
                 c => new
-                    {
-                        Id = c.Guid(nullable: false),
-                        Name = c.String(nullable: false, maxLength: 50),
-                        Description = c.String(maxLength: 1024),
-                    })
+                {
+                    Id = c.Guid(nullable: false),
+                    Name = c.String(nullable: false, maxLength: 50),
+                    Description = c.String(maxLength: 1024),
+                })
                 .PrimaryKey(t => t.Id);
-            
+
         }
-        
+
         public override void Down()
         {
             DropForeignKey("common.Book", "PublisherId", "common.Publisher");
