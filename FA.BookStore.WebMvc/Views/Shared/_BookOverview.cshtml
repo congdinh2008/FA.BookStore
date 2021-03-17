@@ -1,0 +1,12 @@
+﻿@model Book
+
+<div class="col-md-3">
+    <div class="card">
+        <img src="../../Content/images/@Model.ImageUrl" class="card-img-top" alt="@Model.Title">
+        <div class="card-body">
+            <h5 class="card-title">@Model.Title</h5>
+            <p class="card-text">@Model.Summary.Substring(0, 100)</p>
+            <a href="#" class="btn btn-primary">View More</a>
+        </div>
+    </div>
+</div>
